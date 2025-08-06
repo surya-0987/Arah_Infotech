@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Admin Login Page</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -32,7 +32,7 @@
 					<img src="/admin_career/login/image.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" id="loginForm">
 					<span class="login100-form-title">
 						<strong>Admin Login</strong>
 					</span>
@@ -46,7 +46,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" id="password" placeholder="Password">
+						<input class="input100" type="password" name="pass" id="password" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -55,9 +55,12 @@
     							<i class="fa fa-eye" id="eyeIcon"></i>
 						</span>
 					</div>
-					
+					<div class="text-center p-t-12">
+  						<span class="txt1"></span>
+  						<a class="txt2" href="#" onclick="openMobileModal()">Forgot Password?</a>
+					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit" onclick="window.location.href='/admin_career/admin.html';">
+						<button class="login100-form-btn" type="submit">
 							Login
 						</button>
 					</div>
@@ -81,10 +84,17 @@
 			</div>
 		</div>
 	</div>
-	
-	
-
-	
+	<div id="mobileModal" class="modal">
+  		<div class="modal-content">
+    		<span class="close" onclick="closeMobileModal()">&times;</span>
+    		<h3>Enter Admin Mobile Number</h3>
+    		<p>Note: The mobile number should match the registered number (*******095).</p>
+    		<input type="text" id="adminMobileInput" placeholder="Enter mobile number" />
+    		<button onclick="validateAdminMobile()">Submit</button>
+    		<p id="mobileError" class="error-message">Incorrect mobile number.</p>
+  		</div>
+	</div>
+		
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
